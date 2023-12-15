@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 const App = () => {
-  const server="https://brawlnews.github.io/backends"
+  const server="https://express.zandibatch.repl.co"
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
   const quizList=[
@@ -264,7 +264,7 @@ const App = () => {
 
   return (
     <div>
-      <img src="https://i.ibb.co/swDxGsv/2023-10-27-083110.png" alt="logo" id="logo" />
+      <img src="https://i.ibb.co/swDxGsv/2023-10-27-083110.png" alt="logo" id="logo"/>
       <span className="nv nowrap" id="home" onClick={goHome}>홈&nbsp;&nbsp;</span>
       
       <span className="nv nowrap" id="new" onClick={goNew}>작성&nbsp;&nbsp;</span>
