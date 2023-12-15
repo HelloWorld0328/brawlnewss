@@ -4,6 +4,8 @@ const App = () => {
   const server="https://express.zandibatch.repl.co"
   // eslint-disable-next-line react-hooks/exhaustive-deps
 
+
+  
   const quizList=[
     {quiz:"브롤스타즈의 유일한 기본 브롤러는?", ans:"쉘리"},
     {quiz:"브롤스타즈의 정식버전 출시년은?", ans:"2018년"},
