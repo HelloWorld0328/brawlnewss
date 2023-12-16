@@ -12,7 +12,11 @@ const App = () => {
     {quiz:"브롤스타즈의 이용 등급은?", ans:"만 7세 이상 이용가"},
     {quiz:"브롤스타즈가 지원하는 언어의 갯수는?", ans:"22개"},
     {quiz:"브롤스타즈가 서비스중단된 국가중 이름이 3글자인 나라는?", ans:"러시아"},
-    {quiz:"브롤스타즈의 배급사의 영어이름은?", ans:"Supercell"}
+    {quiz:"브롤스타즈의 배급사의 영어이름은?", ans:"Supercell"},
+    {quiz:"레온은 브롤스타즈 처음부터 나온 브롤러일까? (O또는X로 대답)",ans:"O"},
+    {quiz:"쉘리는 처음부터 기본 지급을 했던 브롤러다? (O또는X로 대답)",ans:"O"},
+    {quiz:"최초로 2만을 찍은 사람은 3인큐를 돌려서 찍었는데 그 팀큐중 1명도 최초 ?만을 찍었는데요, 그러면 몇만을 찍었을까요?",ans:"3만"},
+    {quiz:"2만을 최초로 찍은 사람은 어느 나라 사람일까요?",ans:"한국인"}
     
   ]
 
@@ -35,7 +39,21 @@ const App = () => {
           break;
         case 'Enter':
           if (page === "new") {
-            sendPost();
+            const name = document.getElementById("nameForm").value.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const title = document.getElementById("titleForm").value.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const content = document.getElementById("contentForm").value.replace(/\n/g, "\\n").replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            if(name==""){
+              alert("이름을 입력해주세요.")
+            }
+            else if(title==""){
+              alert("재목을 입력해주세요.")
+            }
+            else if(content==""){
+              alert("내용을 입력해주세요.")
+            }
+            else if(name!="" & title!="" & content!=""){
+            sendPost()
+            }
           }
           break;
         case 'i':
@@ -228,6 +246,7 @@ const App = () => {
   };
 
   const goQuiz = () => {
+    page="quiz"
     // 1부터 10까지의 난수 생성
     let min = 0;
     let max = quizList.length - 1;
@@ -248,7 +267,7 @@ const App = () => {
         const userAnswer = document.getElementById("ansForm").value;
         if (userAnswer === ans) {
           alert("맞음");
-          goHome()
+          goQuiz()
         } else {
           alert("틀림");
         }
